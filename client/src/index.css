@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Super Mario Bros Color Palette */
+  --mario-red: oklch(0.55 0.28 15);        /* Bright Mario Red */
+  --mario-blue: oklch(0.45 0.25 260);      /* Luigi Blue */
+  --mario-yellow: oklch(0.85 0.28 80);     /* Coin Yellow */
+  --mario-green: oklch(0.55 0.25 140);     /* Pipe Green */
+  --mario-brown: oklch(0.45 0.08 30);      /* Brick Brown */
+  --mario-sky: oklch(0.70 0.15 250);       /* Sky Blue */
+  --mario-white: oklch(0.98 0.01 0);       /* White */
+  --mario-black: oklch(0.15 0.02 0);       /* Black */
+  
+  /* Theme Colors */
+  --primary: var(--mario-red);
+  --primary-foreground: var(--mario-white);
+  --secondary: var(--mario-blue);
+  --secondary-foreground: var(--mario-white);
+  --accent: var(--mario-yellow);
+  --accent-foreground: var(--mario-black);
+  
+  --background: var(--mario-sky);
+  --foreground: var(--mario-black);
+  --card: var(--mario-white);
+  --card-foreground: var(--mario-black);
+  --popover: var(--mario-white);
+  --popover-foreground: var(--mario-black);
+  --muted: oklch(0.75 0.05 0);
+  --muted-foreground: oklch(0.4 0.05 0);
+  --destructive: var(--mario-red);
+  --destructive-foreground: var(--mario-white);
+  --border: var(--mario-black);
+  --input: var(--mario-white);
+  --ring: var(--mario-yellow);
+  
+  --sidebar: var(--mario-brown);
+  --sidebar-foreground: var(--mario-white);
+  --sidebar-accent: var(--mario-yellow);
+  --sidebar-accent-foreground: var(--mario-black);
+  --sidebar-border: var(--mario-black);
+  --sidebar-ring: var(--mario-yellow);
+  
+  --chart-1: var(--mario-red);
+  --chart-2: var(--mario-blue);
+  --chart-3: var(--mario-yellow);
+  --chart-4: var(--mario-green);
+  --chart-5: var(--mario-brown);
+}
+
+.dark {
+  /* Mario theme is already bright, keep as is */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    background-color: var(--mario-sky);
+    color: var(--mario-black);
+    font-family: 'Press Start 2P', cursive;
+    overflow-x: hidden;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  
+  p, span, a {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 16px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--mario-sky);
+    border: 2px solid var(--mario-black);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--mario-red);
+    border: 2px solid var(--mario-black);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--mario-yellow);
+  }
+  
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+  
+  /* Mario Button */
+  .btn-mario {
+    @apply relative px-6 py-3 font-bold uppercase text-sm;
+    font-family: 'Press Start 2P', cursive;
+    background: var(--mario-red);
+    color: var(--mario-white);
+    border: 4px solid var(--mario-black);
+    box-shadow: 
+      4px 4px 0 0 var(--mario-black),
+      8px 8px 0 0 rgba(0,0,0,0.2);
+    transition: all 0.1s;
+    image-rendering: pixelated;
+  }
+  
+  .btn-mario:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 
+      6px 6px 0 0 var(--mario-black),
+      10px 10px 0 0 rgba(0,0,0,0.2);
+  }
+  
+  .btn-mario:active {
+    transform: translate(2px, 2px);
+    box-shadow: 
+      2px 2px 0 0 var(--mario-black),
+      4px 4px 0 0 rgba(0,0,0,0.2);
+  }
+  
+  .btn-mario.blue {
+    background: var(--mario-blue);
+  }
+  
+  .btn-mario.yellow {
+    background: var(--mario-yellow);
+    color: var(--mario-black);
+  }
+  
+  .btn-mario.green {
+    background: var(--mario-green);
+  }
+  
+  /* Mario Brick Block */
+  .mario-brick {
+    @apply relative;
+    background-image: url('/brick-block.png');
+    background-size: 32px 32px;
+    background-repeat: repeat;
+    border: 4px solid var(--mario-black);
+    box-shadow: inset -4px -4px 0 0 rgba(0,0,0,0.3);
+  }
+  
+  /* Mario Card */
+  .mario-card {
+    @apply relative p-4;
+    background: var(--mario-white);
+    border: 4px solid var(--mario-black);
+    box-shadow: 4px 4px 0 0 var(--mario-black);
+  }
+  
+  .mario-card.red {
+    background: var(--mario-red);
+    color: var(--mario-white);
+  }
+  
+  .mario-card.blue {
+    background: var(--mario-blue);
+    color: var(--mario-white);
+  }
+  
+  .mario-card.yellow {
+    background: var(--mario-yellow);
+    color: var(--mario-black);
+  }
+  
+  /* Mario Panel */
+  .mario-panel {
+    @apply relative p-6;
+    background: var(--mario-white);
+    border: 6px solid var(--mario-black);
+    box-shadow: 6px 6px 0 0 var(--mario-black);
+  }
+  
+  /* Menu item Mario style */
+  .menu-item-mario {
+    @apply relative px-4 py-3 text-xs font-bold uppercase;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+    border: 3px solid transparent;
+    transition: all 0.1s;
+    color: var(--mario-black);
+    background: transparent;
+  }
+  
+  .menu-item-mario:hover {
+    background: var(--mario-yellow);
+    border: 3px solid var(--mario-black);
+    transform: scale(1.05);
+  }
+  
+  .menu-item-mario.active {
+    background: var(--mario-red);
+    color: var(--mario-white);
+    border: 3px solid var(--mario-black);
+  }
+  
+  /* Mario divider */
+  .mario-divider {
+    @apply relative my-4;
+    height: 4px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--mario-red) 0px,
+      var(--mario-red) 8px,
+      var(--mario-white) 8px,
+      var(--mario-white) 16px
+    );
+    border: 2px solid var(--mario-black);
+  }
+  
+  /* Animations */
+  @keyframes mario-jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  
+  @keyframes mario-coin-spin {
+    0% { transform: rotateY(0deg) scale(1); }
+    50% { transform: rotateY(90deg) scale(1.1); }
+    100% { transform: rotateY(360deg) scale(1); }
+  }
+  
+  @keyframes mario-bounce {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-8px); }
+    50% { transform: translateY(0); }
+  }
+  
+  @keyframes mario-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
+  .animate-mario-jump {
+    animation: mario-jump 0.6s ease-in-out;
+  }
+  
+  .animate-mario-coin-spin {
+    animation: mario-coin-spin 0.8s ease-in-out infinite;
+  }
+  
+  .animate-mario-bounce {
+    animation: mario-bounce 0.8s ease-in-out infinite;
+  }
+  
+  .animate-mario-pulse {
+    animation: mario-pulse 0.6s ease-in-out infinite;
+  }
+  
+  /* Hover effects */
+  .hover-mario-lift {
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  
+  .hover-mario-lift:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 var(--mario-black);
+  }
+}
+
+@layer utilities {
+  /* Mario color utilities */
+  .text-mario-red {
+    color: var(--mario-red);
+  }
+  
+  .text-mario-blue {
+    color: var(--mario-blue);
+  }
+  
+  .text-mario-yellow {
+    color: var(--mario-yellow);
+  }
+  
+  .text-mario-green {
+    color: var(--mario-green);
+  }
+  
+  .text-mario-black {
+    color: var(--mario-black);
+  }
+  
+  .text-mario-white {
+    color: var(--mario-white);
+  }
+  
+  .bg-mario-red {
+    background-color: var(--mario-red);
+  }
+  
+  .bg-mario-blue {
+    background-color: var(--mario-blue);
+  }
+  
+  .bg-mario-yellow {
+    background-color: var(--mario-yellow);
+  }
+  
+  .bg-mario-green {
+    background-color: var(--mario-green);
+  }
+  
+  .bg-mario-brown {
+    background-color: var(--mario-brown);
+  }
+  
+
+  
+  .bg-mario-white {
+    background-color: var(--mario-white);
+  }
+  
+  .border-mario-black {
+    border-color: var(--mario-black);
+  }
+  
+  .border-mario-red {
+    border-color: var(--mario-red);
+  }
+  
+  .shadow-mario {
+    box-shadow: 4px 4px 0 0 var(--mario-black);
+  }
+  
+  .shadow-mario-lg {
+    box-shadow: 6px 6px 0 0 var(--mario-black);
+  }
+  
+  /* Pixel perfect */
+  .pixel-perfect {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Ripple Effect */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+  }
+  
+  .ripple:active::after {
+    animation: ripple-animation 0.6s ease-out;
+  }
+  
+  @keyframes ripple-animation {
+    0% {
+      transform: scale(1) translate(-50%, -50%);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(100) translate(-50%, -50%);
+      opacity: 0;
+    }
+  }
+  
+  /* Coin Collect Effect */
+  @keyframes coin-collect {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-30px) scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  .animate-coin-collect {
+    animation: coin-collect 0.6s ease-out;
+  }
+  
+  /* Power-up Glow */
+  @keyframes power-up-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    }
+  }
+  
+  .power-up-glow {
+    animation: power-up-glow 1s ease-in-out infinite;
+  }
+  
+  /* Block Break */
+  @keyframes block-break {
+    0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  .animate-block-break {
+    animation: block-break 0.6s ease-out;
+  }
+}
