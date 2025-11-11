@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useLocation } from "wouter";
 import { APP_LOGO } from "@/const";
 import { Search, User, LogIn, ShoppingCart, MessageCircle, Bell } from "lucide-react";
@@ -5,6 +6,12 @@ import { Search, User, LogIn, ShoppingCart, MessageCircle, Bell } from "lucide-r
 export default function Header() {
   const [, setLocation] = useLocation();
 
+=======
+import { APP_LOGO } from "@/const";
+import { Search, User, LogIn } from "lucide-react";
+
+export default function Header() {
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
   return (
     <header className="fixed top-0 left-0 lg:left-72 right-0 xl:right-80 z-20 h-20">
       {/* Background */}
@@ -49,6 +56,7 @@ export default function Header() {
             <Search size={16} />
           </button>
 
+<<<<<<< HEAD
           {/* Marketplace Button */}
           <button 
             onClick={() => setLocation("/marketplace")}
@@ -87,12 +95,22 @@ export default function Header() {
           >
             <User size={16} />
             <span className="hidden md:inline text-xs">CONTA</span>
+=======
+          {/* User Menu */}
+          <button className="hidden sm:flex items-center gap-2 btn-mario yellow">
+            <User size={16} />
+            <span className="hidden md:inline">CONTA</span>
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
           </button>
 
           {/* Login Button */}
           <button className="btn-mario hidden sm:flex items-center gap-2">
             <LogIn size={16} />
+<<<<<<< HEAD
             <span className="text-xs">ENTRAR</span>
+=======
+            <span>ENTRAR</span>
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
           </button>
         </div>
       </div>

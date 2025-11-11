@@ -44,7 +44,10 @@ pids
 *.pid
 *.seed
 *.pid.lock
+<<<<<<< HEAD
 *.bak
+=======
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
 
 # Coverage directory used by tools like istanbul
 coverage/

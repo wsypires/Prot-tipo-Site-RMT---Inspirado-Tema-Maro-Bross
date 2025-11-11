@@ -6,7 +6,10 @@ import path from "path";
 import { defineConfig } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
 export default defineConfig({
@@ -20,12 +23,20 @@ export default defineConfig({
   },
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
+<<<<<<< HEAD
   publicDir: path.resolve(import.meta.dirname, "client", "public"),
+=======
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
   server: {
+<<<<<<< HEAD
+=======
+    port: 3000,
+    strictPort: false, // Will find next available port if 3000 is busy
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
     host: true,
     allowedHosts: [
       ".manuspre.computer",

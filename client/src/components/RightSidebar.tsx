@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import { useLocation } from "wouter";
 import { Bell, Zap, Star, Users2, Gem, Trophy, MessageCircle, DollarSign, AlertTriangle, HelpCircle } from "lucide-react";
+=======
+import { Bell, Zap, Star, Users2, Gem, Trophy } from "lucide-react";
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
 
 interface NewsItem {
   title: string;
@@ -23,6 +27,7 @@ const topTraders: TopTrader[] = [
   { name: "ShadowNinja", trades: 276 },
 ];
 
+<<<<<<< HEAD
 interface QuickLink {
   label: string;
   icon: React.ReactNode;
@@ -39,6 +44,9 @@ const quickLinks: QuickLink[] = [
 export default function RightSidebar() {
   const [, setLocation] = useLocation();
 
+=======
+export default function RightSidebar() {
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
   return (
     <aside className="hidden xl:block fixed right-0 top-0 h-screen w-80 z-30">
       <div className="relative h-full flex flex-col gap-3 p-3 overflow-y-auto border-l-4 border-mario-black" style={{ backgroundColor: 'var(--mario-sky)' }}>
@@ -83,6 +91,7 @@ export default function RightSidebar() {
           </div>
         </div>
 
+<<<<<<< HEAD
         {/* Quick Links Panel */}
         <div className="mario-panel bg-mario-green text-mario-white">
           <div className="flex items-center gap-2 mb-3 pb-2 border-b-2 border-mario-black">
@@ -104,6 +113,8 @@ export default function RightSidebar() {
           </div>
         </div>
 
+=======
+>>>>>>> 827dd1509dd4ba6b459d5d3ce5057f0eab356045
         {/* Quick Stats Panel */}
         <div className="mario-panel bg-mario-blue text-mario-white">
           <div className="flex items-center gap-2 mb-3 pb-2 border-b-2 border-mario-black">
